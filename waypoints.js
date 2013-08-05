@@ -457,13 +457,10 @@ https://github.com/imakewebthings/jquery-waypoints/blob/master/licenses.txt
         });
       },
       enable: function() {
-        console.log("Enabling waypoints.");
         $[wps].settings.enabled = true;
-        // return jQMethods._invoke('enable');
       },
       disable: function() {
         $[wps].settings.enabled = false;
-        // return jQMethods._invoke('disable');
       },
       destroy: function() {
         return jQMethods._invoke('destroy');
