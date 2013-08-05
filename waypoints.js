@@ -236,7 +236,7 @@ https://github.com/imakewebthings/jquery-waypoints/blob/master/licenses.txt
       }
 
       Waypoint.prototype.trigger = function(args) {
-        if (!this.enabled) {
+        if (!$[wps].settings.enabled || !this.enabled) {
           return;
         }
         if (this.callback != null) {
@@ -457,10 +457,13 @@ https://github.com/imakewebthings/jquery-waypoints/blob/master/licenses.txt
         });
       },
       enable: function() {
-        return jQMethods._invoke('enable');
+        console.log("Enabling waypoints.");
+        $[wps].settings.enabled = true;
+        // return jQMethods._invoke('enable');
       },
       disable: function() {
-        return jQMethods._invoke('disable');
+        $[wps].settings.enabled = false;
+        // return jQMethods._invoke('disable');
       },
       destroy: function() {
         return jQMethods._invoke('destroy');
@@ -510,7 +513,8 @@ https://github.com/imakewebthings/jquery-waypoints/blob/master/licenses.txt
     };
     $[wps].settings = {
       resizeThrottle: 100,
-      scrollThrottle: 30
+      scrollThrottle: 30,
+      enabled: true
     };
     return $w.load(function() {
       return $[wps]('refresh');
